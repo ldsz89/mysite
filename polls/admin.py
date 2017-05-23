@@ -13,4 +13,5 @@ class QuestionAdmin(admin.ModelAdmin):
         ('Date information', {'fields':['pub_date']}),
     ]
 
-admin.site.register(Question, QuestionAdmin, Choice)
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
