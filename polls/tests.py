@@ -63,7 +63,7 @@ class QuestionViewTests(TestCase):
         """
         Questions with a pub_date in the past should be displayed on the index page
         """
-        creaet_question(question_text="Future question.", days=30)
+        create_question(question_text="Future question.", days=30)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'],
@@ -122,6 +122,6 @@ class QuestionIndexDetailTests(TestCase):
         display the question's text.
         """
         past_question = create_question(question_text='Past Question.', days=-5)
-        url - reverse('polls:detail', args=(past_question.id,))
+        url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
